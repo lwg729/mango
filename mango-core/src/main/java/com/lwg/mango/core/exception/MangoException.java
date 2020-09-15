@@ -2,8 +2,7 @@ package com.lwg.mango.core.exception;
 
 /**
  * 自定义异常
- * @author Louis
- * @date Jan 12, 2019
+ *
  */
 public class MangoException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

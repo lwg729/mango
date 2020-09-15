@@ -1,15 +1,14 @@
 package com.lwg.mango.core.page;
 
-import java.util.List;
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lwg.mango.common.utils.ReflectionUtils;
 
+import java.util.List;
+
 /**
  * MyBatis 分页查询助手
- * @author Louis
- * @date Jan 12, 2019
+ *
  */
 public class MybatisPageHelper {
 
@@ -19,6 +18,7 @@ public class MybatisPageHelper {
 	 * 分页查询, 约定查询方法名为 “findPage” 
 	 * @param pageRequest 分页请求
 	 * @param mapper Dao对象，MyBatis的 Mapper	
+	 * @param args 方法参数
 	 * @return
 	 */
 	public static PageResult findPage(PageRequest pageRequest, Object mapper) {

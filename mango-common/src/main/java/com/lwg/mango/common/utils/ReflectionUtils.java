@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  */
 public class ReflectionUtils {
 
-	
+
 	/**
 	 * 根据方法名调用指定对象的方法
 	 * @param object 要调用方法的对象
@@ -41,7 +41,7 @@ public class ReflectionUtils {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * 根据方法名和参数对象查找方法
 	 * @param clazz

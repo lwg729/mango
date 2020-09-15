@@ -1,12 +1,7 @@
 package com.lwg.mango.common.utils;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 /**
  * 文件相关操作
