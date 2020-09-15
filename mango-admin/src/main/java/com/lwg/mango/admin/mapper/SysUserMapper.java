@@ -1,12 +1,11 @@
 package com.lwg.mango.admin.mapper;
 
+import com.lwg.mango.admin.pojo.SysUser;
+import com.lwg.mango.admin.pojo.SysUserExample;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
-import com.lwg.mango.admin.pojo.SysUser;
-import com.lwg.mango.admin.pojo.SysUserExample;
 
 @Mapper
 public interface SysUserMapper {
@@ -33,4 +32,6 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUser record);
 
     List<SysUser> findAll();
+
+    List<SysUser> findPage();
 }

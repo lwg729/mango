@@ -1,8 +1,7 @@
 package com.lwg.mango.core.service;
 
-import com.lwg.mango.page.PageRequest;
-import com.lwg.mango.page.PageResult;
-
+import com.lwg.mango.core.page.PageRequest;
+import com.lwg.mango.core.page.PageResult;
 import java.util.List;
 
 /*

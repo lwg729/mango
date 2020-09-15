@@ -1,11 +1,9 @@
 package com.lwg.mango.admin.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.lwg.mango.admin.pojo.SysConfig;
 import com.lwg.mango.admin.pojo.SysConfigExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysConfigMapper {
     long countByExample(SysConfigExample example);

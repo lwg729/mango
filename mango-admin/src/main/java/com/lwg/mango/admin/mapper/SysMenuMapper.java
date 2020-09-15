@@ -1,11 +1,9 @@
 package com.lwg.mango.admin.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.lwg.mango.admin.pojo.SysMenu;
 import com.lwg.mango.admin.pojo.SysMenuExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysMenuMapper {
     long countByExample(SysMenuExample example);

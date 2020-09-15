@@ -1,11 +1,9 @@
 package com.lwg.mango.admin.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.lwg.mango.admin.pojo.SysUserRole;
 import com.lwg.mango.admin.pojo.SysUserRoleExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysUserRoleMapper {
     long countByExample(SysUserRoleExample example);

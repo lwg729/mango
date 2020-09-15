@@ -1,11 +1,9 @@
 package com.lwg.mango.admin.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.lwg.mango.admin.pojo.SysLoginLog;
 import com.lwg.mango.admin.pojo.SysLoginLogExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysLoginLogMapper {
     long countByExample(SysLoginLogExample example);

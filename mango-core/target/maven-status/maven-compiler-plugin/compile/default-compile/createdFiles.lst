@@ -1,0 +1,7 @@
+com\lwg\mango\core\page\PageResult.class
+com\lwg\mango\core\exception\MangoException.class
+com\lwg\mango\core\http\HttpResult.class
+com\lwg\mango\core\service\CurdService.class
+com\lwg\mango\core\page\MybatisPageHelper.class
+com\lwg\mango\core\page\PageRequest.class
+com\lwg\mango\core\http\HttpStatus.class

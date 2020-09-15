@@ -1,11 +1,9 @@
 package com.lwg.mango.admin.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.lwg.mango.admin.pojo.SysDict;
 import com.lwg.mango.admin.pojo.SysDictExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysDictMapper {
     long countByExample(SysDictExample example);
