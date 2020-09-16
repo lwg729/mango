@@ -1,6 +1,7 @@
 package com.lwg.mango.admin.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class SysUser {
     private Long id;
@@ -32,6 +33,16 @@ public class SysUser {
     private Date lastUpdateTime;
 
     private Byte delFlag;
+
+    private List<SysRole> roles;
+
+    public List<SysRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<SysRole> roles) {
+        this.roles = roles;
+    }
 
     public Long getId() {
         return id;

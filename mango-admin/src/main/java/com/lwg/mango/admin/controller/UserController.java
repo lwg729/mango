@@ -5,6 +5,7 @@ import com.lwg.mango.admin.service.impl.UserServiceImpl;
 import com.lwg.mango.core.http.HttpResult;
 import com.lwg.mango.core.page.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,5 +29,14 @@ public class UserController {
     public HttpResult findPage(@RequestBody PageRequest pageRequest){
 
         return HttpResult.ok(userService.findPage(pageRequest));
+    }
+    @PostMapping("/save")
+    public HttpResult save(@RequestBody SysUser record){
+        return HttpResult.ok(userService.save(record));
+    }
+
+    @PostMapping("/delete")
+    public HttpResult delete(List<SysUser> records){
+        return HttpResult.ok(userService.delete(records));
     }
 }

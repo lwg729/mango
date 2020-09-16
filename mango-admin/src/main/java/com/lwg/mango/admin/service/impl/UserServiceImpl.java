@@ -23,13 +23,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public SysUser findByName(String username) {
-        return null;
+    public SysUser findByName(String name) {
+        return userMapper.findByName(name);
     }
 
     @Override
     public Set<String> findPermissions(String userName) {
         return null;
+    }
+
+    @Override
+    public PageResult findPageUserRoles(PageRequest pageRequest) {
+        return MybatisPageHelper.findPage(pageRequest,userMapper);
     }
 
     @Override
