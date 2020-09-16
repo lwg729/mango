@@ -3,8 +3,11 @@ package com.lwg.mango.admin.mapper;
 import com.lwg.mango.admin.pojo.SysDict;
 import com.lwg.mango.admin.pojo.SysDictExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SysDictMapper {
     long countByExample(SysDictExample example);
 
@@ -27,4 +30,13 @@ public interface SysDictMapper {
     int updateByPrimaryKeySelective(SysDict record);
 
     int updateByPrimaryKey(SysDict record);
+
+    //分页查询
+    List<SysDict> findPage();
+
+    //根据标签名称 label （男 女） 进行查询
+    List<SysDict> findByLabel(@Param(value = "label") String label);
+
+    //根据标名称分页查询
+    List<SysDict> findPageByLabel(@Param(value = "label") String label);
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -19,6 +20,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<SysUser> findAll() {
         return userMapper.findAll();
+    }
+
+    @Override
+    public SysUser findByName(String username) {
+        return null;
+    }
+
+    @Override
+    public Set<String> findPermissions(String userName) {
+        return null;
     }
 
     @Override

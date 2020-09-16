@@ -4,7 +4,17 @@ import com.lwg.mango.admin.pojo.SysUser;
 import com.lwg.mango.core.service.CurdService;
 
 import java.util.List;
+import java.util.Set;
 
 public interface UserService extends CurdService<SysUser> {
     List<SysUser> findAll();
+
+    SysUser findByName(String username);
+
+    /**
+     * 查找用户的菜单权限标识集合
+     * @param userName
+     * @return
+     */
+    Set<String> findPermissions(String userName);
 }
