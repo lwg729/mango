@@ -32,6 +32,14 @@ public class SysMenu {
 
     private List<SysRole> roles;
 
+    public List<SysRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<SysRole> roles) {
+        this.roles = roles;
+    }
+
     public Long getId() {
         return id;
     }
