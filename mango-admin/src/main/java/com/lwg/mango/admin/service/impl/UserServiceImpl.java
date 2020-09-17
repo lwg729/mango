@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public PageResult findPageUserRoles(PageRequest pageRequest) {
-        return MybatisPageHelper.findPage(pageRequest,userMapper);
+        return MybatisPageHelper.findPage(pageRequest,userMapper,"findPageUserRoles");
     }
 
     @Override

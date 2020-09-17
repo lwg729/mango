@@ -1,6 +1,7 @@
 package com.lwg.mango.admin.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class SysMenu {
     private Long id;
@@ -28,6 +29,8 @@ public class SysMenu {
     private Date lastUpdateTime;
 
     private Byte delFlag;
+
+    private List<SysRole> roles;
 
     public Long getId() {
         return id;
