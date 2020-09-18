@@ -32,4 +32,6 @@ public interface SysMenuMapper {
     int updateByPrimaryKey(SysMenu record);
 
     List<SysMenu> findMenuWithRoles();
+
+    List<SysMenu> findByUserName(@Param("name") String name);
 }

@@ -51,4 +51,9 @@ public class UserController {
     public HttpResult findPageUserRoles(@RequestBody PageRequest pageRequest){
         return HttpResult.ok(userService.findPageUserRoles(pageRequest));
     }
+
+    @GetMapping(value="/findPermissions")
+    public HttpResult findPermissions(@RequestParam String name) {
+        return HttpResult.ok(userService.findPermissions(name));
+    }
 }

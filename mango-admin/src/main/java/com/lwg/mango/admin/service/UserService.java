@@ -11,7 +11,7 @@ import java.util.Set;
 public interface UserService extends CurdService<SysUser> {
     List<SysUser> findAll();
 
-    SysUser findByName(String username);
+    SysUser findByName(String name);
 
     /**
      * 查找用户的菜单权限标识集合

@@ -74,6 +74,18 @@
     id, name, parent_id, order_num, create_by, create_time, last_update_by, last_update_time, 
     del_flag
   </sql>
+
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_dept
+  </select>
+  <select id="findPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_dept
+  </select>
+
   <select id="selectByExample" parameterType="com.lwg.mango.admin.pojo.SysDeptExample" resultMap="BaseResultMap">
     select
     <if test="distinct">

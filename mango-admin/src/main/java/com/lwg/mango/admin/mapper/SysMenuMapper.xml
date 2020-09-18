@@ -88,6 +88,13 @@
     last_update_time, del_flag
   </sql>
 
+    <select id="findByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select m.* from sys_menu m, sys_user u, sys_user_role ur, sys_role_menu rm
+  	where u.name = #{name,jdbcType=BIGINT}
+  	and u.id = ur.user_id
+  	and ur.role_id = rm.role_id
+  	and rm.menu_id = m.id
+  </select>
     <select id="findMenuWithRoles" resultMap="MenuWithRoles">
         select m.*, r.id,r.name,r.remark
         from sys_menu m ,

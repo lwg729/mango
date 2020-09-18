@@ -1,6 +1,8 @@
 package com.lwg.mango.admin.service.impl;
 
+import com.lwg.mango.admin.mapper.SysMenuMapper;
 import com.lwg.mango.admin.mapper.SysUserMapper;
+import com.lwg.mango.admin.pojo.SysMenu;
 import com.lwg.mango.admin.pojo.SysUser;
 import com.lwg.mango.admin.service.UserService;
 import com.lwg.mango.core.page.MybatisPageHelper;
@@ -9,6 +11,8 @@ import com.lwg.mango.core.page.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +21,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private SysUserMapper userMapper;
+
+    @Autowired
+    private SysMenuMapper menuMapper;
+
     @Override
     public List<SysUser> findAll() {
         return userMapper.findAll();
@@ -28,8 +36,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Set<String> findPermissions(String userName) {
-        return null;
+    public Set<String> findPermissions(String name) {
+        Set<String> perms = new HashSet<>();
+        List<SysMenu> sysMenus = menuMapper.findByUserName(name);
+        for (SysMenu sysMenu : sysMenus) {
+            if (sysMenu.getPerms()!=null && !"".equals(sysMenu.getPerms())){
+                perms.add(sysMenu.getPerms());
+            }
+        }
+        return perms;
     }
 
     @Override
