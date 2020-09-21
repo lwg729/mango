@@ -7,5 +7,5 @@ import com.lwg.mango.core.service.CurdService;
 
 public interface DeptService extends CurdService<SysDept> {
 
-   List<SysDept> findTree();
+    List<SysDept> findTree();
 }

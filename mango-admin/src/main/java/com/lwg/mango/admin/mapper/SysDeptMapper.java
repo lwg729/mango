@@ -2,9 +2,13 @@ package com.lwg.mango.admin.mapper;
 
 import com.lwg.mango.admin.pojo.SysDept;
 import com.lwg.mango.admin.pojo.SysDeptExample;
+
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SysDeptMapper {
     long countByExample(SysDeptExample example);
 
