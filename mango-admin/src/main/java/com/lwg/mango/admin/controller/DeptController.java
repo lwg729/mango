@@ -3,16 +3,14 @@ package com.lwg.mango.admin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.lwg.mango.admin.pojo.SysDept;
 import com.lwg.mango.admin.service.impl.DeptServiceImpl;
 import com.lwg.mango.core.http.HttpResult;
 
 @RestController
+@RequestMapping("dept")
 public class DeptController {
 
     @Autowired
