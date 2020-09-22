@@ -10,6 +10,7 @@ import com.lwg.mango.admin.mapper.SysMenuMapper;
 import com.lwg.mango.admin.mapper.SysRoleMapper;
 import com.lwg.mango.admin.pojo.SysMenu;
 import com.lwg.mango.admin.pojo.SysRole;
+import com.lwg.mango.admin.pojo.SysRoleMenu;
 import com.lwg.mango.admin.service.RoleService;
 import com.lwg.mango.core.page.MybatisPageHelper;
 import com.lwg.mango.core.page.PageRequest;
@@ -73,5 +74,11 @@ public class RoleServiceImpl implements RoleService {
            return menuMapper.findAll();
         }
         return menuMapper.findRoleMenus(roleId);
+    }
+
+    @Override
+    public int saveRoleMenus(List<SysRoleMenu> records) {
+
+        return 0;
     }
 }
