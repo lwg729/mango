@@ -37,10 +37,11 @@ public class DeptServiceImpl implements DeptService {
         for (SysDept parentDept : parentDepts) {
             ArrayList<SysDept> children = new ArrayList<>();
             for (SysDept allDept : allDepts) {
-                if (parentDept.getId() != null && parentDept.getId().equals(allDept.getParentId())) ;
-                allDept.setParentName(parentDept.getName());
-                allDept.setLevel(parentDept.getLevel() + 1);
-                children.add(allDept);
+                if (parentDept.getId() != null && parentDept.getId().equals(allDept.getParentId())){
+                    allDept.setParentName(parentDept.getName());
+                    allDept.setLevel(parentDept.getLevel() + 1);
+                    children.add(allDept);
+                }
             }
             parentDept.setChildren(children);
             findChildren(children, allDepts);

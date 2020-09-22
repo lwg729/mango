@@ -26,6 +26,7 @@ public class SysDept {
     private List<SysDept> children;
 
     private String parentName;
+
     private Integer level;
 
     public List<SysDept> getChildren() {
