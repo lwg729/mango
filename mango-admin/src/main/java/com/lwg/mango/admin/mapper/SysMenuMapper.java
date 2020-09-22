@@ -2,6 +2,8 @@ package com.lwg.mango.admin.mapper;
 
 import com.lwg.mango.admin.pojo.SysMenu;
 import com.lwg.mango.admin.pojo.SysMenuExample;
+import com.lwg.mango.admin.pojo.SysRole;
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -34,4 +36,8 @@ public interface SysMenuMapper {
     List<SysMenu> findMenuWithRoles();
 
     List<SysMenu> findByUserName(@Param("name") String name);
+
+    List<SysMenu> findRoleMenus(@Param("roleId") Long roleId);
+
+    List<SysMenu> findAll();
 }

@@ -3,8 +3,11 @@ package com.lwg.mango.admin.mapper;
 import com.lwg.mango.admin.pojo.SysRole;
 import com.lwg.mango.admin.pojo.SysRoleExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SysRoleMapper {
     long countByExample(SysRoleExample example);
 
@@ -27,4 +30,12 @@ public interface SysRoleMapper {
     int updateByPrimaryKeySelective(SysRole record);
 
     int updateByPrimaryKey(SysRole record);
+
+    List<SysRole> findPage();
+
+    List<SysRole> findAll();
+
+    List<SysRole> findPageByName(@Param(value="name") String name);
+
+    List<SysRole> findByName(@Param(value="name") String name);
 }

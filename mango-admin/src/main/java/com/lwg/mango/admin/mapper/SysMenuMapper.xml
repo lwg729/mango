@@ -53,6 +53,7 @@
             </foreach>
         </where>
     </sql>
+
     <sql id="Update_By_Example_Where_Clause">
         <where>
             <foreach collection="example.oredCriteria" item="criteria" separator="or">
@@ -83,10 +84,16 @@
             </foreach>
         </where>
     </sql>
+
     <sql id="Base_Column_List">
     id, name, parent_id, url, perms, type, icon, order_num, create_by, create_time, last_update_by, 
     last_update_time, del_flag
   </sql>
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_menu
+    </select>
 
     <select id="findByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
   	select m.* from sys_menu m, sys_user u, sys_user_role ur, sys_role_menu rm
@@ -95,6 +102,7 @@
   	and ur.role_id = rm.role_id
   	and rm.menu_id = m.id
   </select>
+
     <select id="findMenuWithRoles" resultMap="MenuWithRoles">
         select m.*, r.id,r.name,r.remark
         from sys_menu m ,
@@ -104,6 +112,18 @@
           and  r.id=mr.role_id
         order by m.id
   </select>
+
+    <select id="findRoleMenus" resultMap="MenuWithRoles">
+        select m.*
+        from sys_menu m ,
+             sys_role r ,
+             sys_role_menu mr
+       where r.id = #{id,jdbcType=BIGINT}
+             and mr.menu_id=m.id
+             and  r.id=mr.role_id
+       order by m.id
+    </select>
+
     <select id="selectByExample" parameterType="com.lwg.mango.admin.pojo.SysMenuExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
@@ -118,22 +138,26 @@
             order by ${orderByClause}
         </if>
     </select>
+
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from sys_menu
         where id = #{id,jdbcType=BIGINT}
     </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sys_menu
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
     <delete id="deleteByExample" parameterType="com.lwg.mango.admin.pojo.SysMenuExample">
         delete from sys_menu
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </delete>
+
     <insert id="insert" parameterType="com.lwg.mango.admin.pojo.SysMenu">
     insert into sys_menu (id, name, parent_id, 
       url, perms, type, icon, 
@@ -146,6 +170,7 @@
       #{lastUpdateBy,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=TINYINT}
       )
   </insert>
+
     <insert id="insertSelective" parameterType="com.lwg.mango.admin.pojo.SysMenu">
         insert into sys_menu
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -231,12 +256,14 @@
             </if>
         </trim>
     </insert>
+
     <select id="countByExample" parameterType="com.lwg.mango.admin.pojo.SysMenuExample" resultType="java.lang.Long">
         select count(*) from sys_menu
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </select>
+
     <update id="updateByExampleSelective" parameterType="map">
         update sys_menu
         <set>
@@ -284,6 +311,7 @@
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
     </update>
+
     <update id="updateByExample" parameterType="map">
         update sys_menu
         set id = #{record.id,jdbcType=BIGINT},
@@ -303,6 +331,7 @@
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
     </update>
+
     <update id="updateByPrimaryKeySelective" parameterType="com.lwg.mango.admin.pojo.SysMenu">
         update sys_menu
         <set>
@@ -345,6 +374,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
+
     <update id="updateByPrimaryKey" parameterType="com.lwg.mango.admin.pojo.SysMenu">
     update sys_menu
     set name = #{name,jdbcType=VARCHAR},

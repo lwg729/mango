@@ -36,4 +36,5 @@ public interface CurdService<T> {
 
     PageResult findPage(PageRequest pageRequest);
 
+
 }
