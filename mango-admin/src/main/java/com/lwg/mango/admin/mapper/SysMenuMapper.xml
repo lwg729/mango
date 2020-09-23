@@ -95,6 +95,12 @@
         from sys_menu
     </select>
 
+    <select id="findPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_menu
+    </select>
+
     <select id="findByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
   	select m.* from sys_menu m, sys_user u, sys_user_role ur, sys_role_menu rm
   	where u.name = #{name,jdbcType=VARCHAR}

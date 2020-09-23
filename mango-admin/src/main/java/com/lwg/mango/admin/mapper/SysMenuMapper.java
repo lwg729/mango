@@ -9,6 +9,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+
 @Mapper
 public interface SysMenuMapper {
     long countByExample(SysMenuExample example);
@@ -37,7 +38,13 @@ public interface SysMenuMapper {
 
     List<SysMenu> findByUserName(@Param("name") String name);
 
+    //查询每个角色拥有的菜单权限
     List<SysMenu> findRoleMenus(@Param("id") Long id);
 
+    //根据name进行查找分页
+    List<SysMenu> findPgaeByName(@Param("name") String name);
+
     List<SysMenu> findAll();
+
+    List<SysMenu> findPage();
 }

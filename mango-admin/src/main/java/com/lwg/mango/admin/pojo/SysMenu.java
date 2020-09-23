@@ -30,7 +30,38 @@ public class SysMenu {
 
     private Byte delFlag;
 
+    //非数据库字段
     private List<SysRole> roles;
+
+    private String parentName;
+
+    private int level;
+
+    private List<SysMenu> children;
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public List<SysMenu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<SysMenu> children) {
+        this.children = children;
+    }
 
     public List<SysRole> getRoles() {
         return roles;
