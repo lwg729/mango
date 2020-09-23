@@ -37,7 +37,7 @@ public interface SysMenuMapper {
 
     List<SysMenu> findByUserName(@Param("name") String name);
 
-    List<SysMenu> findRoleMenus(@Param("roleId") Long roleId);
+    List<SysMenu> findRoleMenus(@Param("id") Long id);
 
     List<SysMenu> findAll();
 }

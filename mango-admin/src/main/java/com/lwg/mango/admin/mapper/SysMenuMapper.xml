@@ -97,7 +97,7 @@
 
     <select id="findByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
   	select m.* from sys_menu m, sys_user u, sys_user_role ur, sys_role_menu rm
-  	where u.name = #{name,jdbcType=BIGINT}
+  	where u.name = #{name,jdbcType=VARCHAR}
   	and u.id = ur.user_id
   	and ur.role_id = rm.role_id
   	and rm.menu_id = m.id
@@ -114,13 +114,16 @@
   </select>
 
     <select id="findRoleMenus" resultMap="MenuWithRoles">
-        select m.*
-        from sys_menu m ,
-             sys_role r ,
-             sys_role_menu mr
-       where r.id = #{id,jdbcType=BIGINT}
-             and mr.menu_id=m.id
-             and  r.id=mr.role_id
+       SELECT
+            m.*
+        FROM
+            sys_menu m,
+            sys_role r,
+            sys_role_menu rm
+        WHERE
+              m.id = rm.menu_id
+          AND r.id = rm.role_id
+          AND r.id = #{id,jdbcType=BIGINT}
        order by m.id
     </select>
 

@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lwg.mango.admin.constant.SysConstants;
+import com.lwg.mango.admin.mapper.SysRoleMapper;
 import com.lwg.mango.admin.pojo.SysRole;
+import com.lwg.mango.admin.pojo.SysRoleMenu;
 import com.lwg.mango.admin.service.impl.RoleServiceImpl;
 import com.lwg.mango.core.http.HttpResult;
 import com.lwg.mango.core.page.PageRequest;
@@ -21,6 +24,9 @@ public class RoleController {
 
     @Autowired
     private RoleServiceImpl roleService;
+
+    @Autowired
+    private SysRoleMapper roleMapper;
 
     @PostMapping("/save")
     public HttpResult save(@RequestBody SysRole record){
@@ -42,8 +48,19 @@ public class RoleController {
         return HttpResult.ok(roleService.findPage(pageRequest));
     }
     @GetMapping(value="/findRoleMenus")
-    public HttpResult findRoleMenus(@RequestParam Long roleId) {
-        return HttpResult.ok(roleService.findRoleMenus(roleId));
+    public HttpResult findRoleMenus(@RequestParam Long id) {
+        return HttpResult.ok(roleService.findRoleMenus(id));
+    }
+
+    @PostMapping("/saveRoleMenus")
+    public HttpResult saveRoleMenus(@RequestBody List<SysRoleMenu> records){
+        for (SysRoleMenu record : records) {
+            SysRole role = roleMapper.selectByPrimaryKey(record.getRoleId());
+            if (SysConstants.ADMIN.equalsIgnoreCase(role.getName())){
+                return HttpResult.error("超级管理员拥有所有权限,不允许修改");
+            }
+        }
+        return HttpResult.ok(roleService.saveRoleMenus(records));
     }
 
 }

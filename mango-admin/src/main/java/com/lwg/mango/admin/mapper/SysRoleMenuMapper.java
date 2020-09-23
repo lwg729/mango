@@ -3,8 +3,11 @@ package com.lwg.mango.admin.mapper;
 import com.lwg.mango.admin.pojo.SysRoleMenu;
 import com.lwg.mango.admin.pojo.SysRoleMenuExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SysRoleMenuMapper {
     long countByExample(SysRoleMenuExample example);
 
@@ -27,4 +30,6 @@ public interface SysRoleMenuMapper {
     int updateByPrimaryKeySelective(SysRoleMenu record);
 
     int updateByPrimaryKey(SysRoleMenu record);
+
+    int deleteByRoleId(@Param("roleId") long roleId);
 }

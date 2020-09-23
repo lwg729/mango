@@ -23,7 +23,7 @@ public interface RoleService extends CurdService<SysRole> {
      * 查询角色的菜单集合
      */
 
-    List<SysMenu> findRoleMenus(Long roleId);
+    List<SysMenu> findRoleMenus(Long id);
 
     /**
      * 保存角色菜单
