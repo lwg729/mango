@@ -3,8 +3,11 @@ package com.lwg.mango.admin.mapper;
 import com.lwg.mango.admin.pojo.SysLoginLog;
 import com.lwg.mango.admin.pojo.SysLoginLogExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SysLoginLogMapper {
     long countByExample(SysLoginLogExample example);
 
@@ -27,4 +30,10 @@ public interface SysLoginLogMapper {
     int updateByPrimaryKeySelective(SysLoginLog record);
 
     int updateByPrimaryKey(SysLoginLog record);
+
+    List<SysLoginLog> findPage();
+
+    List<SysLoginLog> findPageByUserName(@Param("userName") String userName);
+
+    List<SysLoginLog> findPageByStatus(@Param("status") String status);
 }
