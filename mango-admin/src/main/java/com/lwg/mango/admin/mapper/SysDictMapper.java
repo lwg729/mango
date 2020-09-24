@@ -37,6 +37,4 @@ public interface SysDictMapper {
     //根据标签名称 label （男 女） 进行查询
     List<SysDict> findByLabel(@Param(value = "label") String label);
 
-    //根据标名称分页查询
-    List<SysDict> findPageByLabel(@Param(value = "label") String label);
 }

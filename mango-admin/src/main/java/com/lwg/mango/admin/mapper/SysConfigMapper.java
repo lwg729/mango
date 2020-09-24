@@ -3,8 +3,11 @@ package com.lwg.mango.admin.mapper;
 import com.lwg.mango.admin.pojo.SysConfig;
 import com.lwg.mango.admin.pojo.SysConfigExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SysConfigMapper {
     long countByExample(SysConfigExample example);
 
@@ -27,4 +30,8 @@ public interface SysConfigMapper {
     int updateByPrimaryKeySelective(SysConfig record);
 
     int updateByPrimaryKey(SysConfig record);
+
+    List<SysConfig> findPage();
+
+    List<SysConfig> findByLabel(@Param("label") String label);
 }

@@ -77,6 +77,20 @@
     id, value, label, type, description, sort, create_by, create_time, last_update_by, 
     last_update_time, remarks, del_flag
   </sql>
+
+  <select id="findPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_config
+  </select>
+
+  <select id="findByLabel" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_config
+    where label=#{label,jdbcType=VARCHAR}
+  </select>
+
   <select id="selectByExample" parameterType="com.lwg.mango.admin.pojo.SysConfigExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
