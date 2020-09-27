@@ -5,6 +5,7 @@ import com.lwg.mango.core.page.PageRequest;
 import com.lwg.mango.core.page.PageResult;
 import com.lwg.mango.core.service.CurdService;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 
@@ -21,4 +22,6 @@ public interface UserService extends CurdService<SysUser> {
     Set<String> findPermissions(String userName);
 
     PageResult findPageUserRoles(PageRequest pageRequest);
+
+    File createUserExcelFile(PageRequest pageRequest);
 }

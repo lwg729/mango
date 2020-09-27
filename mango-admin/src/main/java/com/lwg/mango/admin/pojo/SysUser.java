@@ -36,6 +36,27 @@ public class SysUser {
 
     private List<SysRole> roles;
 
+    //非数据库字段
+    private String deptName;
+
+    private String roleNames;
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public String getRoleNames() {
+        return roleNames;
+    }
+
+    public void setRoleNames(String roleNames) {
+        this.roleNames = roleNames;
+    }
+
     public List<SysRole> getRoles() {
         return roles;
     }

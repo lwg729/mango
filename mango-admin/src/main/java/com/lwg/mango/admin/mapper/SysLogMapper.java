@@ -3,8 +3,11 @@ package com.lwg.mango.admin.mapper;
 import com.lwg.mango.admin.pojo.SysLog;
 import com.lwg.mango.admin.pojo.SysLogExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SysLogMapper {
     long countByExample(SysLogExample example);
 

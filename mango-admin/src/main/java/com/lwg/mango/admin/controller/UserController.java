@@ -1,7 +1,9 @@
 package com.lwg.mango.admin.controller;
 
+import com.github.pagehelper.Page;
 import com.lwg.mango.admin.pojo.SysUser;
 import com.lwg.mango.admin.service.impl.UserServiceImpl;
+import com.lwg.mango.common.utils.FileUtils;
 import com.lwg.mango.core.http.HttpResult;
 import com.lwg.mango.core.page.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("user")
@@ -55,5 +60,12 @@ public class UserController {
     @GetMapping(value="/findPermissions")
     public HttpResult findPermissions(@RequestParam String name) {
         return HttpResult.ok(userService.findPermissions(name));
+    }
+
+    //导出
+    @PostMapping(value="/exportExcelUser")
+    public void exportExcelUser(@RequestBody PageRequest pageRequest, HttpServletResponse res){
+        File file = userService.createUserExcelFile(pageRequest);
+        FileUtils.downloadFile(res,file,file.getName());
     }
 }

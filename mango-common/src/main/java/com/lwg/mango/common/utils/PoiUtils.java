@@ -5,7 +5,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import java.io.*;
 
 /**
- * POI相关操作
+ * POI相关操作  生成Excel文件
  */
 public class PoiUtils {
 
