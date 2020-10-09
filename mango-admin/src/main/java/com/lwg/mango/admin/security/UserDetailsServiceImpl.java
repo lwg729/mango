@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.lwg.mango.admin.pojo.SysUser;
 import com.lwg.mango.admin.service.impl.UserServiceImpl;
@@ -20,6 +21,7 @@ import com.lwg.mango.admin.service.impl.UserServiceImpl;
  * 作为结果JwtUsertails返回给DaoAuthenticationProvider做进一步处理
  * 传递过程  UserDetailsServiceImpl覆写loadUserByUsername查询信息->结果封装到JwtUserDetails->返回给DaoAuthenticationProvider
  */
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
@@ -33,7 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         //用户权限列表 根据权限标识如@PreAuthorize("hasAuthrity('sys:menu:view')")
-        //标准的接口对比,决定是否可以调用接口
+        //标准的接口对比,决定是否可以调用接口 获得用户菜单集合
         Set<String> permissions = userService.findPermissions(username);
 
         //获取permissions中所有权限标识额集合

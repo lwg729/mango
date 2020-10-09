@@ -3,6 +3,7 @@ package com.lwg.mango.admin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,23 +24,26 @@ public class DictController {
     @Autowired
     private DictServiceImpl dictService;
 
-    @RequestMapping(value = "/save",method = RequestMethod.POST)
-    public HttpResult save(@RequestBody SysDict record){
+    @PreAuthorize("hasAnyAuthority('sys:dict:add') AND hasAnyAuthority('sys:dict:edit')")
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public HttpResult save(@RequestBody SysDict record) {
         return HttpResult.ok(dictService.save(record));
     }
 
+    @PreAuthorize("hasAnyAuthority('sys:dict:delete')")
     @PostMapping("/delete")
-    public HttpResult delete(@RequestBody List<SysDict> records){
+    public HttpResult delete(@RequestBody List<SysDict> records) {
         return HttpResult.ok(dictService.delete(records));
     }
 
+    @PreAuthorize("hasAnyAuthority('sys:dict:view')")
     @PostMapping("/findPage")
-    public HttpResult findPage(@RequestBody PageRequest pageRequest){
+    public HttpResult findPage(@RequestBody PageRequest pageRequest) {
         return HttpResult.ok(dictService.findPage(pageRequest));
     }
-
+    @PreAuthorize("hasAnyAuthority('sys:dict:view')")
     @GetMapping("/findByLabel")
-    public HttpResult findByLabel(@RequestParam String label){
+    public HttpResult findByLabel(@RequestParam String label) {
         return HttpResult.ok(dictService.findByLabel(label));
     }
 }

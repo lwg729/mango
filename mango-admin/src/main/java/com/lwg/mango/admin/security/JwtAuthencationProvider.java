@@ -19,7 +19,9 @@ public class JwtAuthencationProvider extends DaoAuthenticationProvider {
     }
 
     @Override
-    protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
+    protected void additionalAuthenticationChecks(UserDetails userDetails,
+                                                  UsernamePasswordAuthenticationToken authentication) throws AuthenticationException {
+
         if (authentication.getCredentials() == null) {
             logger.debug("Authentication failed: no credentials provider");
             throw new BadCredentialsException(messages.getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials", "Bad credentials"));

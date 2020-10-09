@@ -44,6 +44,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.findByName(name);
     }
 
+    /**
+     * 获得用户权限列表集合
+     * @param name
+     * @return
+     */
     @Override
     public Set<String> findPermissions(String name) {
         Set<String> perms = new HashSet<>();
